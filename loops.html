@@ -1,0 +1,170 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <script>
+      // CLASSWORK
+      // 1. Виведіть парні числа від 2 до 20
+      let evenNumber;
+      let evenArray = [];
+      for (let i = 0; i <= 20; i++) {
+        if (i % 2 == 0) {
+          evenArray.push(i);
+        }
+      }
+      console.log(evenArray);
+
+      //2. Запитуйте у користувача з допомогою prompt число,
+      //доки він не введе число більше 100.
+      let askNumber = 0;
+
+      do {
+        askNumber = +prompt("number");
+      } while (askNumber <= 100);
+
+      //3. Виведіть числа Фібоначчі менші за 100
+
+      function fibonacci(n) {
+        let arr = [0, 1];
+        for (let i = 2; i < n + 1; i++) {
+          arr.push(arr[i - 2] + arr[i - 1]);
+        }
+        return console.log(arr);
+      }
+      fibonacci(10);
+
+      // HOMEWORK
+      // 1
+      //Знайдіть суму всіх цифр від 1 до 100.
+      let sum = 0;
+      for (let i = 0; i <= 100; i++) {
+        sum += i;
+      }
+      console.log(sum);
+
+      //   2
+      //Є масив [1, 2, 3, 4, 5]. З допомогою  цикла for вивести всі елементи на екран.
+      let numberArray = [1, 2, 3, 4, 5];
+      for (let i = 0; i < numberArray.length; i++) {
+        console.log(numberArray[i]);
+      }
+
+      //   3
+      // Є масив [-1, 22, 3, 44, 5]. Виведіть максимальне значення
+      let unorderedArray = [-1, 22, 3, 44, 5];
+      orderList = (a, b) => {
+        return a - b;
+      };
+      console.log(unorderedArray.sort(orderList));
+
+      //     4
+      //   Попросити юзера ввести 8 чисел і
+      //   скільки він ввів додатніх, відємних та нулів.
+      //   Вивести статистику на екран.
+      //   Також досмтатньо тільки 1 змінної для отримання даних від юзера
+
+      let attemps = 0;
+      let askUser;
+      let numbersInserted = [];
+
+      do {
+        askUser = +prompt("Insert a number: ");
+        numbersInserted.push(askUser);
+        attemps++;
+      } while (attemps < 8);
+
+      let allNumbers = {
+        positiveNumber: [],
+        negativeNumber: [],
+        zeroNumber: [],
+        statistics() {
+          console.log(
+            `Statics to all numbers user inserted: positive ( ${this.positiveNumber} ) and  ${this.positiveNumber.length} times, negative: ( ${this.negativeNumber} ) and ${this.negativeNumber.length} times and zero inserted  ${this.zeroNumber.length} times`
+          );
+        }
+      };
+      for (let i = 0; i < numbersInserted.length; i++) {
+        if (numbersInserted[i] > 0) {
+          allNumbers.positiveNumber.push(numbersInserted[i]);
+        } else if (numbersInserted[i] < 0) {
+          allNumbers.negativeNumber.push(numbersInserted[i]);
+        } else if (numbersInserted[i] == 0) {
+          allNumbers.zeroNumber.push(numbersInserted[i]);
+        } else {
+          console.log("not a number ");
+        }
+      }
+      allNumbers.statistics();
+
+      // 5
+      //Надрукуйте табличку множення для числа  8 від 1 до 9. 8 х 1 = 8
+      let multiplicationSum = 0;
+      for (let i = 0; i < 9; i++) {
+        if (i == 8) {
+          for (let j = 1; j <= 10; j++) {
+            multiplicationSum = i * j;
+            console.log(`${i} * ${j} = ${multiplicationSum}`);
+          }
+        }
+      }
+
+      //   6
+      //Є масив з елементами 2, 5, 9, 15, 0, 4.
+      // З допомогою цикла for і оператора if вивести на екран цифри,
+      //які більше 3-х, але менше 10.
+
+      let particularNumber = [2, 5, 9, 15, 0, 4];
+      for (let i = 0; i < particularNumber.length; i++) {
+        if (particularNumber[i] > 3 && particularNumber[i] < 10) {
+          console.log(particularNumber[i]);
+        }
+      }
+      //     7
+      //   Створити калькулятор який буде зациклений.
+      //   Запитати у юзера 2 числа та знак ,
+      //   провести математичну операцію,
+      //   далі вивести результат і спитатись чи хоче юзер повторити?
+      let calculator = 0;
+      let repeatCalculation;
+      do {
+        let firstNum = +prompt("insert first number: ");
+        let secondNum = +prompt("insert second number: ");
+        let operation = prompt("which operation do you want to perform: ");
+        switch (operation) {
+          case "*":
+            calculator = firstNum * secondNum;
+            alert(calculator);
+            break;
+          case "-":
+            calculator = firstNum - secondNum;
+            alert(calculator);
+            break;
+          case "+":
+            calculator = firstNum + secondNum;
+            alert(calculator);
+            break;
+          case "/":
+            calculator = firstNum / secondNum;
+            alert(calculator);
+            break;
+          case "//":
+            calculator = `firstNum // secondNum`;
+            alert(calculator);
+            break;
+          case "%":
+            calculator = firstNum % secondNum;
+            alert(calculator);
+            break;
+          case "**":
+            calculator = firstNum ** secondNum;
+            alert(calculator);
+            break;
+          default:
+            alert("No such calculation");
+        }
+        repeatCalculation = confirm("continue?");
+      } while (repeatCalculation);
+    </script>
+  </body>
+</html>
